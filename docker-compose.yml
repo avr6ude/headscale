@@ -8,10 +8,14 @@ services:
     volumes:
       - ./headscale/config:/etc/headscale
       - ./headscale/data:/var/lib/headscale
-      
-secrets:
-  # Traefik
-  cf_email:
-    file: ./.secrets/cf_email
-  cf_api_key:
-    file: ./.secrets/cf_api_key
+  headplane:
+    image: ghcr.io/tale/headplane:latest
+    container_name: headplane
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - './configs/headplane/config.yaml:/etc/headplane/config.yaml'
+      - './configs/headscale/config.yaml:/etc/headscale/config.yaml'
+      - './data/headplane:/var/lib/headplane'
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
