@@ -10,6 +10,8 @@ services:
       - ./headscale/data:/var/lib/headscale:rw
     labels:
       - "traefik.docker.network=headscale"
+    networks:
+      - headscale
 
   headplane:
     image: ghcr.io/tale/headplane:latest
@@ -22,3 +24,8 @@ services:
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
     labels:
       - "traefik.docker.network=headscale"
+    networks:
+      - headscale
+
+networks:
+  headscale:
