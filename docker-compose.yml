@@ -5,8 +5,6 @@ services:
     container_name: headscale
     restart: unless-stopped
     command: headscale serve
-    networks:
-      - frontend
     volumes:
       - ./headscale/config:/etc/headscale
       - ./headscale/data:/var/lib/headscale
