@@ -15,7 +15,7 @@ services:
     ports:
       - '3005:3000'
     volumes:
-      - './configs/headplane/config.yaml:/etc/headplane/config.yaml:rw'
-      - './configs/headscale/config.yaml:/etc/headscale/config.yaml:rw'
+      - './headplane/config/config.yaml:/etc/headplane/config.yaml:rw'
+      - './headscale/config/config.yaml:/etc/headscale/config.yaml:rw'
       - './data/headplane:/var/lib/headplane:rw'
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
