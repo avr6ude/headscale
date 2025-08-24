@@ -29,7 +29,7 @@ headscale:
 
   # Optional, public URL if they differ
   # This affects certain parts of the web UI
-  # public_url: "https://hs.avrdu.de"
+  public_url: "https://hs.avrdu.de"
 
   # Path to the Headscale configuration file
   # This is optional, but HIGHLY recommended for the best experience
@@ -62,7 +62,7 @@ integration:
     enabled: false
     # To connect to your Tailnet, you need to generate a pre-auth key
     # This can be done via the web UI or through the `headscale` CLI.
-    pre_authkey: "Zg5e4JF.8C68Z3u8YOwcy5Uhoor8luQeKh0ccu1S"
+    pre_authkey: "ISU71Xy.vwsaKiL_8uVP6pJoNglOhbUm00ZrqpbY"
     # Optionally change the name of the agent in the Tailnet.
     host_name: "agent"
 
