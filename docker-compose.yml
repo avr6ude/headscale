@@ -6,8 +6,8 @@ services:
     restart: unless-stopped
     command: serve
     volumes:
-      - ./headscale/config:/etc/headscale
-      - ./headscale/data:/var/lib/headscale
+      - ./headscale/config:/etc/headscale:rw
+      - ./headscale/data:/var/lib/headscale:rw
   headplane:
     image: ghcr.io/tale/headplane:latest
     container_name: headplane
@@ -15,7 +15,7 @@ services:
     ports:
       - '3005:3000'
     volumes:
-      - './configs/headplane/config.yaml:/etc/headplane/config.yaml'
-      - './configs/headscale/config.yaml:/etc/headscale/config.yaml'
-      - './data/headplane:/var/lib/headplane'
+      - './configs/headplane/config.yaml:/etc/headplane/config.yaml:rw'
+      - './configs/headscale/config.yaml:/etc/headscale/config.yaml:rw'
+      - './data/headplane:/var/lib/headplane:rw'
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
