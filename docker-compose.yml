@@ -8,6 +8,9 @@ services:
     volumes:
       - ./headscale/config:/etc/headscale:rw
       - ./headscale/data:/var/lib/headscale:rw
+    labels:
+      - "traefik.docker.network=headscale"
+
   headplane:
     image: ghcr.io/tale/headplane:latest
     container_name: headplane
@@ -17,3 +20,5 @@ services:
       - './headscale/config/config.yaml:/etc/headscale/config.yaml:rw'
       - './data/headplane:/var/lib/headplane:rw'
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    labels:
+      - "traefik.docker.network=headscale"
